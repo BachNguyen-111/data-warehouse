@@ -139,7 +139,7 @@ All diagrams are draw.io files saved as PNG. Open them in [draw.io](https://www.
 
 - **Original project and dataset**: the [Data With Baraa](https://www.youtube.com/@datawithbaraa) SQL Data Warehouse tutorial.
 - **My extensions**: I chose what to add beyond the tutorial (date dimension, Gold as tables, SCD Type 2, change detection) and the design decisions listed above.
-- **AI assistance**: I used [Claude](https://claude.ai) (Anthropic) as an assistant to help write and review the Gold layer SQL, organize the repository, write the documentation, and draw the diagrams. I tested the results and can explain every part of the code.
+- **AI assistance**: I used [Claude](https://claude.ai) (Anthropic) as an assistant to help write and review the Gold layer SQL, organize the repository, write the documentation, and draw the diagrams.
 
 ## About me
 
