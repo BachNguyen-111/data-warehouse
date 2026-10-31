@@ -141,9 +141,7 @@ The original project design and the dataset come from the [Data With Baraa](http
 
 ## About me
 
-I'm a business analytics student who enjoys the analytical side of data: figuring out how the numbers fit together and making them reliable enough to make decisions with.
-
-[LinkedIn](https://www.linkedin.com/in/YOUR-PROFILE) · [GitHub](https://github.com/YOUR-USERNAME)
+I'm a business analytics student who enjoys the practical analytical side of data: figuring out how the numbers fit together and making them reliable enough to make decisions with. 
 
 ## License
 
