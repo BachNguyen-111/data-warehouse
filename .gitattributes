@@ -1,0 +1,2 @@
+# Count all SQL files as T-SQL (SQL Server) in GitHub language stats
+*.sql linguist-language=TSQL
