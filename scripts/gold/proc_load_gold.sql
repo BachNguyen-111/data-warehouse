@@ -39,7 +39,7 @@ AS
 BEGIN
     SET NOCOUNT ON;
     DECLARE @start_time DATETIME, @end_time DATETIME, @batch_start_time DATETIME, @batch_end_time DATETIME;
-    DECLARE @rows INT, @cal_start DATE, @cal_end DATE;
+    DECLARE @rows INT, @inserted INT, @updated INT, @cal_start DATE, @cal_end DATE;
     DECLARE @customer_changes TABLE (merge_action NVARCHAR(10));
 
     BEGIN TRY
@@ -176,8 +176,12 @@ BEGIN
                          src.marital_status, src.gender, src.birthdate, src.create_date)
         OUTPUT $action INTO @customer_changes;
 
-        PRINT '   Customers inserted: ' + CAST((SELECT COUNT(*) FROM @customer_changes WHERE merge_action = 'INSERT') AS NVARCHAR);
-        PRINT '   Customers updated : ' + CAST((SELECT COUNT(*) FROM @customer_changes WHERE merge_action = 'UPDATE') AS NVARCHAR);
+        -- PRINT cannot contain a subquery (Msg 1046), so count into variables first
+        SELECT @inserted = COUNT(CASE WHEN merge_action = 'INSERT' THEN 1 END),
+               @updated  = COUNT(CASE WHEN merge_action = 'UPDATE' THEN 1 END)
+        FROM @customer_changes;
+        PRINT '   Customers inserted: ' + CAST(@inserted AS NVARCHAR);
+        PRINT '   Customers updated : ' + CAST(@updated AS NVARCHAR);
 
         SET @end_time = GETDATE();
         PRINT '>> Load Duration: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) + ' seconds';
